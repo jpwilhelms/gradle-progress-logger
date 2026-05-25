@@ -80,7 +80,7 @@ publishing {
                     developer {
                         id.set("jpwilhelms")
                         name.set("Jan-Peter Wilhelms")
-                        email.set("gradle-progress-logger@familie-wilhelms.de")
+                        email.set("gradle-progress-logger@wilhelms.dev")
                     }
                 }
                 
