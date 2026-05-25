@@ -1,5 +1,6 @@
 plugins {
     `kotlin-dsl`
+    `java-gradle-plugin`
     `maven-publish`
     `signing`
     id("org.jetbrains.dokka") version "1.9.10"
@@ -39,9 +40,11 @@ tasks.test {
 }
 
 gradlePlugin {
+    // We keep the plugin definition ONLY to support 'withPluginClasspath()' in functional tests.
+    // The library is consumed via its Maven coordinates.
     plugins {
-        create("dummy") {
-            id = "dev.wilhelms.gradle.progress-logger-dummy"
+        create("progressLoggerHelper") {
+            id = "dev.wilhelms.gradle.progress-logger-helper"
             implementationClass = "dev.wilhelms.gradle.progress.ProgressPlugin" 
         }
     }
@@ -68,8 +71,8 @@ publishing {
                 developers {
                     developer {
                         id.set("jpwilhelms")
-                        name.set("Jan-Paul Wilhelms")
-                        email.set("jan-paul@wilhelms.dev")
+                        name.set("Jan-Peter Wilhelms")
+                        email.set("jan-peter@familie-wilhelms.de")
                     }
                 }
                 
@@ -84,7 +87,6 @@ publishing {
 }
 
 signing {
-    // Only sign when publishing to a real repository, not mavenLocal
     setRequired({
         (project.extra.has("isRelease") && project.extra.get("isRelease") == "true") ||
         gradle.taskGraph.hasTask("publish")
