@@ -1,7 +1,8 @@
 plugins {
     `kotlin-dsl`
-    `java-gradle-plugin`
     `maven-publish`
+    `signing`
+    id("org.jetbrains.dokka") version "1.9.10"
 }
 
 group = "dev.wilhelms.gradle"
@@ -23,6 +24,8 @@ dependencies {
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+    withSourcesJar()
+    withJavadocJar()
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
@@ -49,6 +52,42 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             artifactId = "gradle-progress-logger"
+            
+            pom {
+                name.set("Gradle Progress Logger")
+                description.set("A robust, version-agnostic wrapper for Gradle's internal ProgressLogger.")
+                url.set("https://github.com/jpwilhelms/gradle-progress-logger")
+                
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id.set("jpwilhelms")
+                        name.set("Jan-Paul Wilhelms")
+                        email.set("jan-paul@wilhelms.dev")
+                    }
+                }
+                
+                scm {
+                    connection.set("scm:git:git://github.com/jpwilhelms/gradle-progress-logger.git")
+                    developerConnection.set("scm:git:ssh://github.com:jpwilhelms/gradle-progress-logger.git")
+                    url.set("https://github.com/jpwilhelms/gradle-progress-logger")
+                }
+            }
         }
     }
+}
+
+signing {
+    // Only sign when publishing to a real repository, not mavenLocal
+    setRequired({
+        (project.extra.has("isRelease") && project.extra.get("isRelease") == "true") ||
+        gradle.taskGraph.hasTask("publish")
+    })
+    sign(publishing.publications["maven"])
 }
