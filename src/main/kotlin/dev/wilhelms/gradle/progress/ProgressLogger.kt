@@ -23,12 +23,13 @@ class ProgressLogger(private val project: Project, private val taskClass: Class<
             val getServicesMethod = project.javaClass.getMethod("getServices")
             val services = getServicesMethod.invoke(project)
             
-            // Try known ProgressLoggerFactory locations
-            val factoryClass = try {
-                Class.forName("org.gradle.internal.logging.progress.ProgressLoggerFactory")
-            } catch (e: Exception) {
-                Class.forName("org.gradle.internal.logging.ProgressLoggerFactory")
-            }
+            // Try known ProgressLoggerFactory locations (Gradle 7.x vs 8.x)
+            val factoryClass = listOf(
+                "org.gradle.internal.logging.progress.ProgressLoggerFactory",
+                "org.gradle.internal.logging.ProgressLoggerFactory"
+            ).firstNotNullOfOrNull { 
+                try { Class.forName(it) } catch (e: Exception) { null }
+            } ?: throw IllegalStateException("ProgressLoggerFactory not found")
             
             val getServiceMethod = services.javaClass.getMethod("get", Class::class.java)
             val factory = getServiceMethod.invoke(services, factoryClass)
@@ -37,59 +38,62 @@ class ProgressLogger(private val project: Project, private val taskClass: Class<
             val newOpMethod = factoryClass.getMethod("newOperation", Class::class.java)
             loggerInstance = newOpMethod.invoke(factory, taskClass)
         } catch (e: Exception) {
-            // Logger remains null, fallback to silent or basic console will be used in methods
+            // Logger remains null
         }
     }
 
     fun start(description: String, shortDescription: String = "") {
         if (isStarted) return
         try {
-            loggerInstance?.let { logger ->
-                logger.javaClass.getMethod("setDescription", String::class.java).invoke(logger, description)
+            if (loggerInstance != null) {
+                loggerInstance!!.javaClass.getMethod("setDescription", String::class.java).invoke(loggerInstance, description)
                 if (shortDescription.isNotBlank()) {
-                    logger.javaClass.getMethod("setShortDescription", String::class.java).invoke(logger, shortDescription)
+                    loggerInstance!!.javaClass.getMethod("setShortDescription", String::class.java).invoke(loggerInstance, shortDescription)
                 }
-                logger.javaClass.getMethod("started").invoke(logger)
+                loggerInstance!!.javaClass.getMethod("started").invoke(loggerInstance)
                 isStarted = true
+                return
             }
-        } catch (e: Exception) {
-            // Fallback: Just print start message if interactive logging fails
-            println("> $description")
-        }
+        } catch (e: Exception) { }
+        
+        // Fallback
+        println("> $description")
+        isStarted = true
     }
 
     fun progress(message: String) {
         try {
-            loggerInstance?.let { logger ->
-                logger.javaClass.getMethod("progress", String::class.java).invoke(logger, message)
-            } ?: run {
-                // In-place console fallback (JUnit style)
-                print("\r\u001B[K> $message")
-                System.out.flush()
+            if (loggerInstance != null) {
+                loggerInstance!!.javaClass.getMethod("progress", String::class.java).invoke(loggerInstance, message)
+                return
             }
-        } catch (e: Exception) {
-            // Silent fallback
-        }
+        } catch (e: Exception) { }
+        
+        // In-place console fallback
+        print("\r\u001B[K> $message")
+        System.out.flush()
     }
 
     fun completed(status: String? = null) {
-        if (!isStarted && loggerInstance == null) return
+        if (!isStarted) return
         try {
-            loggerInstance?.let { logger ->
+            if (loggerInstance != null) {
                 if (status != null) {
-                    logger.javaClass.getMethod("completed", String::class.java).invoke(logger, status)
+                    loggerInstance!!.javaClass.getMethod("completed", String::class.java).invoke(loggerInstance, status)
                 } else {
-                    logger.javaClass.getMethod("completed").invoke(logger)
+                    loggerInstance!!.javaClass.getMethod("completed").invoke(loggerInstance)
                 }
-            } ?: run {
-                // Clear the in-place line
-                print("\r\u001B[K")
-                System.out.flush()
+                return
             }
-        } catch (e: Exception) {
-            // Silent fallback
-        } finally {
-            isStarted = false
+        } catch (e: Exception) { }
+        
+        // Clear the in-place line
+        if (status != null) {
+            println("\r\u001B[K> Completed: $status")
+        } else {
+            print("\r\u001B[K")
+            System.out.flush()
         }
+        isStarted = false
     }
 }
