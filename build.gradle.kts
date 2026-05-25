@@ -39,6 +39,7 @@ tasks.test {
     useJUnitPlatform()
 }
 
+// State of the Art: Use internal plugin ONLY for tests
 gradlePlugin {
     plugins {
         create("progressLoggerTestHelper") {
@@ -46,6 +47,16 @@ gradlePlugin {
             implementationClass = "dev.wilhelms.gradle.progress.internal.ProgressLoggerTestHelper" 
         }
     }
+}
+
+// Crucial: Point TestKit to the test source set classes as well!
+tasks.pluginUnderTestMetadata {
+    pluginClasspath.from(sourceSets.test.get().output)
+}
+
+// ...but we EXCLUDE the plugin metadata from the published JAR!
+tasks.jar {
+    exclude("META-INF/gradle-plugins/dev.wilhelms.gradle.progress-logger-test-helper.properties")
 }
 
 publishing {

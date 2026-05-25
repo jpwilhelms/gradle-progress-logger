@@ -4,8 +4,8 @@ Received JVM installation metadata from '/workspace/Tools/linux/java/jdk-21.0.11
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Starting process 'Gradle build daemon'. Working directory: /home/coder/.gradle/daemon/8.5 Command: /workspace/Tools/linux/java/jdk-21.0.11/bin/java --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -XX:MaxMetaspaceSize=384m -XX:+HeapDumpOnOutOfMemoryError -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -cp /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-launcher-8.5.jar -javaagent:/home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/agents/gradle-instrumentation-agent-8.5.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.5
 Successfully started process 'Gradle build daemon'
-An attempt to start the daemon took 0.873 secs.
-The client will now receive all logging from the daemon (pid: 74241). The daemon log file: /home/coder/.gradle/daemon/8.5/daemon-74241.out.log
+An attempt to start the daemon took 0.875 secs.
+The client will now receive all logging from the daemon (pid: 81455). The daemon log file: /home/coder/.gradle/daemon/8.5/daemon-81455.out.log
 Daemon will be stopped at the end of the build 
 Using 16 worker leases.
 Received JVM installation metadata from '/workspace/Tools/linux/java/jdk-21.0.11': {JAVA_HOME=/workspace/Tools/linux/java/jdk-21.0.11, JAVA_VERSION=21.0.11, JAVA_VENDOR=Oracle Corporation, RUNTIME_NAME=Java(TM) SE Runtime Environment, RUNTIME_VERSION=21.0.11+9-LTS-211, VM_NAME=Java HotSpot(TM) 64-Bit Server VM, VM_VERSION=21.0.11+9-LTS-211, VM_VENDOR=Oracle Corporation, OS_ARCH=amd64}
@@ -66,134 +66,134 @@ Transforming groovy-nio-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-sql-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-templates-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-test-3.0.17.jar with ClasspathEntrySnapshotTransform
-Transforming groovy-xml-3.0.17.jar with ClasspathEntrySnapshotTransform
-Transforming javaparser-core-3.17.0.jar with ClasspathEntrySnapshotTransform
-Transforming kotlin-stdlib-1.9.20.jar with ClasspathEntrySnapshotTransform
-Transforming kotlin-reflect-1.9.20.jar with ClasspathEntrySnapshotTransform
-Transforming gradle-installation-beacon-8.5.jar with ClasspathEntrySnapshotTransform
-Transforming gradle-kotlin-dsl-extensions-8.5.jar with ClasspathEntrySnapshotTransform
-Transforming gradle-kotlin-dsl-8.5.jar with ClasspathEntrySnapshotTransform
-Transforming gradle-kotlin-dsl-shared-runtime-8.5.jar with ClasspathEntrySnapshotTransform
-Transforming gradle-kotlin-dsl-tooling-models-8.5.jar with ClasspathEntrySnapshotTransform
-Transforming kotlin-reflect-1.9.20.jar with ClasspathEntrySnapshotTransform
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-test-3.0.17.jar because:
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-console-3.0.17.jar because:
   Build cache is disabled
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-astbuilder-3.0.17.jar because:
   Build cache is disabled
-Transforming kotlin-stdlib-1.9.20.jar with ClasspathEntrySnapshotTransform
-Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-groovydoc-3.0.17.jar because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-ant-3.0.17.jar because:
-  Build cache is disabled
+Transforming groovy-xml-3.0.17.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-datetime-3.0.17.jar because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-nio-3.0.17.jar because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-console-3.0.17.jar because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-templates-3.0.17.jar because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-xml-3.0.17.jar because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-dateutil-3.0.17.jar because:
-  Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-xml-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-astbuilder-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-nio-3.0.17.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/javaparser-core-3.17.0.jar because:
-  Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-test-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-console-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-datetime-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/javaparser-core-3.17.0.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-stdlib-1.9.20.jar because:
-  Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-ant-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-dateutil-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-templates-3.0.17.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-api-8.5.jar because:
   Build cache is disabled
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-sql-3.0.17.jar because:
   Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-3.0.17.jar because:
+Transforming javaparser-core-3.17.0.jar with ClasspathEntrySnapshotTransform
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-dateutil-3.0.17.jar because:
   Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-groovydoc-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-api-8.5.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-3.0.17.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-stdlib-1.9.20.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-ant-3.0.17.jar because:
+  Build cache is disabled
+Transforming kotlin-stdlib-1.9.20.jar with ClasspathEntrySnapshotTransform
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-ant-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-console-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-dateutil-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-astbuilder-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-datetime-3.0.17.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-groovydoc-3.0.17.jar because:
+  Build cache is disabled
+Transforming kotlin-reflect-1.9.20.jar with ClasspathEntrySnapshotTransform
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-sql-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-groovydoc-3.0.17.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-test-3.0.17.jar because:
+  Build cache is disabled
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-nio-3.0.17.jar because:
+  Build cache is disabled
+Transforming gradle-installation-beacon-8.5.jar with ClasspathEntrySnapshotTransform
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-api-8.5.jar because:
+  Build cache is disabled
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-json-3.0.17.jar because:
   Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-api-8.5.jar as it is up-to-date.
+Transforming gradle-kotlin-dsl-extensions-8.5.jar with ClasspathEntrySnapshotTransform
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-xml-3.0.17.jar because:
+  Build cache is disabled
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-3.0.17.jar because:
+  Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-test-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-xml-3.0.17.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-templates-3.0.17.jar because:
+  Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-3.0.17.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-nio-3.0.17.jar as it is up-to-date.
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-json-3.0.17.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-reflect-1.9.20.jar because:
+Transforming gradle-kotlin-dsl-8.5.jar with ClasspathEntrySnapshotTransform
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/groovy-templates-3.0.17.jar as it is up-to-date.
+Transforming gradle-kotlin-dsl-shared-runtime-8.5.jar with ClasspathEntrySnapshotTransform
+Transforming gradle-kotlin-dsl-tooling-models-8.5.jar with ClasspathEntrySnapshotTransform
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/javaparser-core-3.17.0.jar because:
   Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-reflect-1.9.20.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-extensions-8.5.jar because:
-  Build cache is disabled
+Transforming kotlin-reflect-1.9.20.jar with ClasspathEntrySnapshotTransform
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/javaparser-core-3.17.0.jar as it is up-to-date.
+Transforming kotlin-stdlib-1.9.20.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-tooling-models-8.5.jar because:
   Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-extensions-8.5.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-stdlib-1.9.20.jar because:
+  Build cache is disabled
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-tooling-models-8.5.jar as it is up-to-date.
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-installation-beacon-8.5.jar because:
   Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-stdlib-1.9.20.jar as it is up-to-date.
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-installation-beacon-8.5.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-shared-runtime-8.5.jar because:
-  Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-shared-runtime-8.5.jar as it is up-to-date.
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar because:
   Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar as it is up-to-date.
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-8.5.jar because:
   Build cache is disabled
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-extensions-8.5.jar because:
+  Build cache is disabled
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-reflect-1.9.20.jar because:
+  Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-shared-runtime-8.5.jar because:
+  Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/kotlin-reflect-1.9.20.jar as it is up-to-date.
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-8.5.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-extensions-8.5.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/gradle-kotlin-dsl-shared-runtime-8.5.jar as it is up-to-date.
 Caching disabled for task ':compileKotlin' because:
   Build cache is disabled
 Skipping task ':compileKotlin' as it is up-to-date.
-Resolve mutations for :compileJava (Thread[#109,Execution worker Thread 7,5,main]) started.
-:compileJava (Thread[#109,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :compileJava (Thread[#103,Execution worker,5,main]) started.
+:compileJava (Thread[#103,Execution worker,5,main]) started.
 
 > Task :compileJava NO-SOURCE
 Skipping task ':compileJava' as it has no source files and no previous output files.
-Resolve mutations for :pluginDescriptors (Thread[#109,Execution worker Thread 7,5,main]) started.
-:pluginDescriptors (Thread[#109,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :pluginDescriptors (Thread[#103,Execution worker,5,main]) started.
+:pluginDescriptors (Thread[#103,Execution worker,5,main]) started.
 
 > Task :pluginDescriptors UP-TO-DATE
 Caching disabled for task ':pluginDescriptors' because:
   Build cache is disabled
 Skipping task ':pluginDescriptors' as it is up-to-date.
-Resolve mutations for :processResources (Thread[#109,Execution worker Thread 7,5,main]) started.
-:processResources (Thread[#109,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :processResources (Thread[#103,Execution worker,5,main]) started.
+:processResources (Thread[#103,Execution worker,5,main]) started.
 
 > Task :processResources UP-TO-DATE
 Caching disabled for task ':processResources' because:
   Build cache is disabled
 Skipping task ':processResources' as it is up-to-date.
-Resolve mutations for :classes (Thread[#109,Execution worker Thread 7,5,main]) started.
-:classes (Thread[#109,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :classes (Thread[#103,Execution worker,5,main]) started.
+:classes (Thread[#103,Execution worker,5,main]) started.
 
 > Task :classes UP-TO-DATE
 Skipping task ':classes' as it has no actions.
-Resolve mutations for :compileTestKotlin (Thread[#109,Execution worker Thread 7,5,main]) started.
-:compileTestKotlin (Thread[#109,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :compileTestKotlin (Thread[#103,Execution worker,5,main]) started.
+:compileTestKotlin (Thread[#103,Execution worker,5,main]) started.
 
 > Task :compileTestKotlin UP-TO-DATE
 Transforming main with ClasspathEntrySnapshotTransform
 Transforming main with ClasspathEntrySnapshotTransform
 Transforming gradle-api-8.5.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-3.0.17.jar with ClasspathEntrySnapshotTransform
+Caching disabled for ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/resources/main because:
+  Build cache is disabled
+Caching disabled for ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/classes/kotlin/main because:
+  Build cache is disabled
 Transforming groovy-ant-3.0.17.jar with ClasspathEntrySnapshotTransform
+Skipping ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/resources/main as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/classes/kotlin/main as it is up-to-date.
 Transforming groovy-astbuilder-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-console-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-datetime-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-dateutil-3.0.17.jar with ClasspathEntrySnapshotTransform
-Caching disabled for ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/classes/kotlin/main because:
-  Build cache is disabled
-Caching disabled for ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/resources/main because:
-  Build cache is disabled
 Transforming groovy-groovydoc-3.0.17.jar with ClasspathEntrySnapshotTransform
-Skipping ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/resources/main as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /workspace/gradle-lib-quality-plugin/progress-logger/build/classes/kotlin/main as it is up-to-date.
 Transforming groovy-json-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-nio-3.0.17.jar with ClasspathEntrySnapshotTransform
 Transforming groovy-sql-3.0.17.jar with ClasspathEntrySnapshotTransform
@@ -211,75 +211,172 @@ Transforming gradle-kotlin-dsl-tooling-models-8.5.jar with ClasspathEntrySnapsho
 Transforming gradle-test-kit-8.5.jar with ClasspathEntrySnapshotTransform
 Transforming kotlin-reflect-1.9.20.jar with ClasspathEntrySnapshotTransform
 Transforming kotlin-test-junit5-1.9.20.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-test-1.9.20.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-1.9.20.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-test-kit-8.5.jar because:
   Build cache is disabled
-Transforming kotlin-test-1.9.20.jar with ClasspathEntrySnapshotTransform
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-test-kit-8.5.jar as it is up-to-date.
-Transforming kotlin-stdlib-1.9.20.jar with ClasspathEntrySnapshotTransform
 Transforming junit-jupiter-params-5.10.1.jar with ClasspathEntrySnapshotTransform
-Transforming junit-jupiter-api-5.10.1.jar with ClasspathEntrySnapshotTransform
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.9.20/3d791df888c66be4edef6312d30f7430fb498435/kotlin-test-1.9.20.jar because:
-  Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/8.5/generated-gradle-jars/gradle-test-kit-8.5.jar as it is up-to-date.
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit5/1.9.20/f0071c080ff14635906cea395fd7f4c85959f53d/kotlin-test-junit5-1.9.20.jar because:
   Build cache is disabled
+Transforming junit-jupiter-api-5.10.1.jar with ClasspathEntrySnapshotTransform
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit5/1.9.20/f0071c080ff14635906cea395fd7f4c85959f53d/kotlin-test-junit5-1.9.20.jar as it is up-to-date.
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.9.20/3d791df888c66be4edef6312d30f7430fb498435/kotlin-test-1.9.20.jar because:
+  Build cache is disabled
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.9.20/3d791df888c66be4edef6312d30f7430fb498435/kotlin-test-1.9.20.jar as it is up-to-date.
 Transforming junit-platform-commons-1.10.1.jar with ClasspathEntrySnapshotTransform
-Transforming junit-jupiter-5.10.1.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.10.1/c8f15d4e99940c4564098af78c10809c00fdca06/junit-jupiter-params-5.10.1.jar because:
   Build cache is disabled
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.10.1/c8f15d4e99940c4564098af78c10809c00fdca06/junit-jupiter-params-5.10.1.jar as it is up-to-date.
+Transforming junit-jupiter-5.10.1.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.10.1/eb90c7d8bfaae8fdc97b225733fcb595ddd72843/junit-jupiter-api-5.10.1.jar because:
   Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.10.1/eb90c7d8bfaae8fdc97b225733fcb595ddd72843/junit-jupiter-api-5.10.1.jar as it is up-to-date.
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.10.1/c8f15d4e99940c4564098af78c10809c00fdca06/junit-jupiter-params-5.10.1.jar as it is up-to-date.
 Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.10.1/eb90c7d8bfaae8fdc97b225733fcb595ddd72843/junit-jupiter-api-5.10.1.jar as it is up-to-date.
 Transforming apiguardian-api-1.1.2.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.10.1/2bfcd4a4e38b10c671b6916d7e543c20afe25579/junit-platform-commons-1.10.1.jar because:
   Build cache is disabled
-Transforming opentest4j-1.3.0.jar with ClasspathEntrySnapshotTransform
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.10.1/2bfcd4a4e38b10c671b6916d7e543c20afe25579/junit-platform-commons-1.10.1.jar as it is up-to-date.
+Transforming opentest4j-1.3.0.jar with ClasspathEntrySnapshotTransform
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter/5.10.1/6e5c7dd668d6349cb99e52ab8321e73479a309bc/junit-jupiter-5.10.1.jar because:
   Build cache is disabled
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter/5.10.1/6e5c7dd668d6349cb99e52ab8321e73479a309bc/junit-jupiter-5.10.1.jar as it is up-to-date.
-Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar because:
-  Build cache is disabled
-Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar as it is up-to-date.
 Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e/opentest4j-1.3.0.jar because:
   Build cache is disabled
+Caching disabled for ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar because:
+  Build cache is disabled
 Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e/opentest4j-1.3.0.jar as it is up-to-date.
+Skipping ClasspathEntrySnapshotTransform: /home/coder/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar as it is up-to-date.
 Caching disabled for task ':compileTestKotlin' because:
   Build cache is disabled
 Skipping task ':compileTestKotlin' as it is up-to-date.
-Resolve mutations for :compileTestJava (Thread[#109,Execution worker Thread 7,5,main]) started.
-:compileTestJava (Thread[#109,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :compileTestJava (Thread[#103,Execution worker,5,main]) started.
+:compileTestJava (Thread[#103,Execution worker,5,main]) started.
 
 > Task :compileTestJava NO-SOURCE
 Skipping task ':compileTestJava' as it has no source files and no previous output files.
-Resolve mutations for :pluginUnderTestMetadata (Thread[#109,Execution worker Thread 7,5,main]) started.
-:pluginUnderTestMetadata (Thread[#113,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :pluginUnderTestMetadata (Thread[#117,Execution worker Thread 15,5,main]) started.
+:pluginUnderTestMetadata (Thread[#117,Execution worker Thread 15,5,main]) started.
 
 > Task :pluginUnderTestMetadata UP-TO-DATE
 Caching disabled for task ':pluginUnderTestMetadata' because:
   Build cache is disabled
 Skipping task ':pluginUnderTestMetadata' as it is up-to-date.
-Resolve mutations for :processTestResources (Thread[#113,Execution worker Thread 11,5,main]) started.
-:processTestResources (Thread[#113,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :processTestResources (Thread[#117,Execution worker Thread 15,5,main]) started.
+:processTestResources (Thread[#117,Execution worker Thread 15,5,main]) started.
 
 > Task :processTestResources NO-SOURCE
 Skipping task ':processTestResources' as it has no source files and no previous output files.
-Resolve mutations for :testClasses (Thread[#113,Execution worker Thread 11,5,main]) started.
-:testClasses (Thread[#113,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :testClasses (Thread[#117,Execution worker Thread 15,5,main]) started.
+:testClasses (Thread[#114,Execution worker Thread 12,5,main]) started.
 
 > Task :testClasses UP-TO-DATE
 Skipping task ':testClasses' as it has no actions.
-Resolve mutations for :test (Thread[#113,Execution worker Thread 11,5,main]) started.
-:test (Thread[#113,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :test (Thread[#114,Execution worker Thread 12,5,main]) started.
+:test (Thread[#114,Execution worker Thread 12,5,main]) started.
+Gradle Test Executor 1 started executing tests.
 
-> Task :test UP-TO-DATE
+> Task :test
 Caching disabled for task ':test' because:
   Build cache is disabled
-Skipping task ':test' as it is up-to-date.
+Task ':test' is not up-to-date because:
+  Task has failed previously.
+file or directory '/workspace/gradle-lib-quality-plugin/progress-logger/build/classes/java/test', not found
+Starting process 'Gradle Test Executor 1'. Working directory: /workspace/gradle-lib-quality-plugin/progress-logger Command: /workspace/Tools/linux/java/jdk-21.0.11/bin/java -Dorg.gradle.internal.worker.tmpdir=/workspace/gradle-lib-quality-plugin/progress-logger/build/tmp/test/work -Dorg.gradle.native=false --add-opens=java.base/java.lang=ALL-UNNAMED @/home/coder/.gradle/.tmp/gradle-worker-classpath9429701123314993453txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+Successfully started process 'Gradle Test Executor 1'
 
-BUILD SUCCESSFUL in 7s
-7 actionable tasks: 1 executed, 6 up-to-date
+ProgressLoggerTest > logger works and falls back to console in non-interactive environment() STANDARD_OUT
+
+    FAILURE: 
+    Build failed with an exception.
+
+
+    * Where:
+
+    Build file '/tmp/junit6799671590971126100/build.gradle.kts' line: 3
+
+
+    * What went wrong:
+
+    Error resolving plugin [id: 'dev.wilhelms.gradle.progress-logger-test-helper']
+
+    > 
+    Could not find implementation class 'dev.wilhelms.gradle.progress.internal.ProgressLoggerTestHelper' for plugin 'dev.wilhelms.gradle.progress-logger-test-helper' specified in file:/workspace/gradle-lib-quality-plugin/progress-logger/build/resources/main/META-INF/gradle-plugins/dev.wilhelms.gradle.progress-logger-test-helper.properties.
+
+
+    * Try:
+
+    > 
+    Run with 
+    --stacktrace
+     option to get the stack trace.
+
+    > 
+    Run with 
+    --info
+     or 
+    --debug
+     option to get more log output.
+
+    > 
+    Run with 
+    --scan
+     to get full insights.
+
+    > 
+    Get more help at 
+    https://help.gradle.org
+    .
+
+
+    BUILD FAILED
+     in 3s
+
+
+Gradle Test Executor 1 finished executing tests.
+
+> Task :test FAILED
+
+ProgressLoggerTest > logger works and falls back to console in non-interactive environment() FAILED
+    org.gradle.testkit.runner.UnexpectedBuildFailure: Unexpected build execution failure in /tmp/junit6799671590971126100 with arguments [testProgress]
+
+    Output:
+
+    FAILURE: Build failed with an exception.
+
+    * Where:
+    Build file '/tmp/junit6799671590971126100/build.gradle.kts' line: 3
+
+    * What went wrong:
+    Error resolving plugin [id: 'dev.wilhelms.gradle.progress-logger-test-helper']
+    > Could not find implementation class 'dev.wilhelms.gradle.progress.internal.ProgressLoggerTestHelper' for plugin 'dev.wilhelms.gradle.progress-logger-test-helper' specified in file:/workspace/gradle-lib-quality-plugin/progress-logger/build/resources/main/META-INF/gradle-plugins/dev.wilhelms.gradle.progress-logger-test-helper.properties.
+
+    * Try:
+    > Run with --stacktrace option to get the stack trace.
+    > Run with --info or --debug option to get more log output.
+    > Run with --scan to get full insights.
+    > Get more help at https://help.gradle.org.
+
+    BUILD FAILED in 3s
+        at app//org.gradle.testkit.runner.internal.DefaultGradleRunner.lambda$build$2(DefaultGradleRunner.java:269)
+        at app//org.gradle.testkit.runner.internal.DefaultGradleRunner.run(DefaultGradleRunner.java:362)
+        at app//org.gradle.testkit.runner.internal.DefaultGradleRunner.build(DefaultGradleRunner.java:267)
+        at app//dev.wilhelms.gradle.progress.ProgressLoggerTest.logger works and falls back to console in non-interactive environment(ProgressLoggerTest.kt:39)
+
+1 test completed, 1 failed
+Finished generating test XML results (0.018 secs) into: /workspace/gradle-lib-quality-plugin/progress-logger/build/test-results/test
+Generating HTML test report...
+Finished generating test html results (0.023 secs) into: /workspace/gradle-lib-quality-plugin/progress-logger/build/reports/tests/test
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///workspace/gradle-lib-quality-plugin/progress-logger/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 13s
+7 actionable tasks: 2 executed, 5 up-to-date
 Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
