@@ -7,7 +7,8 @@ plugins {
 }
 
 group = "dev.wilhelms.gradle"
-version = "0.1.0-SNAPSHOT"
+// Version is set here as default, but can be overridden via -Pversion=...
+version = project.findProperty("version")?.toString() ?: "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -39,7 +40,7 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// State of the Art: Use internal plugin ONLY for tests
+// Internal plugin ONLY for tests
 gradlePlugin {
     plugins {
         create("progressLoggerTestHelper") {
@@ -49,12 +50,10 @@ gradlePlugin {
     }
 }
 
-// Crucial: Point TestKit to the test source set classes as well!
 tasks.pluginUnderTestMetadata {
     pluginClasspath.from(sourceSets.test.get().output)
 }
 
-// ...but we EXCLUDE the plugin metadata from the published JAR!
 tasks.jar {
     exclude("META-INF/gradle-plugins/dev.wilhelms.gradle.progress-logger-test-helper.properties")
 }
