@@ -55,8 +55,6 @@ class ProgressLogger(
     }
 
     private fun invokeMethod(obj: Any, methodName: String, vararg args: Any?) {
-        val argTypes = args.map { if (it == null) String::class.java else it.javaClass }.toTypedArray()
-        
         // Special handling for String parameters because they might be GStrings or other CharSequences
         val normalizedArgs = args.map { it?.toString() }.toTypedArray()
         val normalizedTypes = Array(args.size) { String::class.java }
