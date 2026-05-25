@@ -1,5 +1,6 @@
 plugins {
     `kotlin-dsl`
+    `java-gradle-plugin`
     `maven-publish`
 }
 
@@ -12,6 +13,11 @@ repositories {
 
 dependencies {
     compileOnly(gradleApi())
+    testImplementation(gradleApi())
+    testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.1")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 java {
@@ -22,6 +28,19 @@ java {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+gradlePlugin {
+    plugins {
+        create("dummy") {
+            id = "dev.wilhelms.gradle.progress-logger-dummy"
+            implementationClass = "dev.wilhelms.gradle.progress.ProgressPlugin" 
+        }
     }
 }
 
