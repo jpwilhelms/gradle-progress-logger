@@ -80,7 +80,7 @@ publishing {
                     developer {
                         id.set("jpwilhelms")
                         name.set("Jan-Peter Wilhelms")
-                        email.set("jan-peter@familie-wilhelms.de")
+                        email.set("peter@wilhelms.dev")
                     }
                 }
                 
@@ -92,12 +92,26 @@ publishing {
             }
         }
     }
+    
+    repositories {
+        maven {
+            val releasesRepoUrl = "https://central.sonatype.com/service/local/staging/deploy/maven2/"
+            val snapshotsRepoUrl = "https://central.sonatype.com/content/repositories/snapshots/"
+            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+            
+            credentials {
+                username = System.getenv("OSSRH_USERNAME")
+                password = System.getenv("OSSRH_PASSWORD")
+            }
+        }
+    }
 }
 
 signing {
-    setRequired({
-        (project.extra.has("isRelease") && project.extra.get("isRelease") == "true") ||
-        gradle.taskGraph.hasTask("publish")
-    })
-    sign(publishing.publications["maven"])
+    val key = System.getenv("GPG_PRIVATE_KEY")
+    val password = System.getenv("GPG_PASSPHRASE")
+    if (key != null && password != null) {
+        useInMemoryPgpKeys(key, password)
+        sign(publishing.publications["maven"])
+    }
 }
