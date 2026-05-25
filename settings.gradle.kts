@@ -1,1 +1,1 @@
-rootProject.name = "gradle-progresslogger-plugin"
+rootProject.name = "gradle-progress-logger"
