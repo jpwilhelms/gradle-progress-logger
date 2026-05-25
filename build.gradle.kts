@@ -40,12 +40,10 @@ tasks.test {
 }
 
 gradlePlugin {
-    // We keep the plugin definition ONLY to support 'withPluginClasspath()' in functional tests.
-    // The library is consumed via its Maven coordinates.
     plugins {
-        create("progressLoggerHelper") {
-            id = "dev.wilhelms.gradle.progress-logger-helper"
-            implementationClass = "dev.wilhelms.gradle.progress.ProgressPlugin" 
+        create("progressLoggerTestHelper") {
+            id = "dev.wilhelms.gradle.progress-logger-test-helper"
+            implementationClass = "dev.wilhelms.gradle.progress.internal.ProgressLoggerTestHelper" 
         }
     }
 }

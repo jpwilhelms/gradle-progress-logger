@@ -17,7 +17,7 @@ class ProgressLoggerTest {
             import dev.wilhelms.gradle.progress.ProgressLogger
 
             plugins {
-                id("dev.wilhelms.gradle.progress-logger-dummy")
+                id("dev.wilhelms.gradle.progress-logger-test-helper")
             }
 
             tasks.register("testProgress") {
@@ -38,11 +38,6 @@ class ProgressLoggerTest {
             .forwardOutput()
             .build()
 
-        // Since GradleRunner is non-interactive, the logger should have fallen back to basic println or silent.
-        // Our fallback prints "> Test Operation" at start if reflection fails.
-        // And print("\r\u001B[K> message") for progress if reflection fails.
-        
         assertTrue(result.output.contains("BUILD SUCCESSFUL"), "Build should succeed")
-        // We verify that using the class doesn't crash the build
     }
 }

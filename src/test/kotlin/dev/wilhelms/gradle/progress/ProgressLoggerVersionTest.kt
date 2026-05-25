@@ -19,7 +19,7 @@ class ProgressLoggerVersionTest {
             import dev.wilhelms.gradle.progress.ProgressLogger
 
             plugins {
-                id("dev.wilhelms.gradle.progress-logger-dummy")
+                id("dev.wilhelms.gradle.progress-logger-test-helper")
             }
 
             tasks.register("testProgress") {
