@@ -8,10 +8,15 @@ import java.lang.reflect.Method
  * A robust wrapper for Gradle's internal ProgressLogger.
  * Encapsulates reflection logic and provides a clean API with automatic fallbacks.
  */
-class ProgressLogger(private val project: Project, private val taskClass: Class<*>) : Serializable {
+class ProgressLogger(
+    private val project: Project, 
+    private val taskClass: Class<*>,
+    private val forceNative: Boolean = false
+) : Serializable {
 
     private var loggerInstance: Any? = null
     private var isStarted = false
+    private var usedMechanism: String = "none"
 
     init {
         initializeLogger()
@@ -19,42 +24,124 @@ class ProgressLogger(private val project: Project, private val taskClass: Class<
 
     private fun initializeLogger() {
         try {
-            // Get services from project
             val getServicesMethod = project.javaClass.getMethod("getServices")
             val services = getServicesMethod.invoke(project)
             
-            // Try known ProgressLoggerFactory locations (Gradle 7.x vs 8.x)
+            // Comprehensive package list for different Gradle versions
             val factoryClass = listOf(
                 "org.gradle.internal.logging.progress.ProgressLoggerFactory",
                 "org.gradle.internal.logging.ProgressLoggerFactory"
-            ).firstNotNullOfOrNull { 
-                try { Class.forName(it) } catch (e: Exception) { null }
-            } ?: throw IllegalStateException("ProgressLoggerFactory not found")
+            ).firstNotNullOfOrNull { name ->
+                try { Class.forName(name) } catch (e: Exception) { null }
+            }
             
-            val getServiceMethod = services.javaClass.getMethod("get", Class::class.java)
-            val factory = getServiceMethod.invoke(services, factoryClass)
-            
-            // Create a new operation
-            val newOpMethod = factoryClass.getMethod("newOperation", Class::class.java)
-            loggerInstance = newOpMethod.invoke(factory, taskClass)
+            if (factoryClass != null) {
+                val getServiceMethod = services.javaClass.getMethod("get", Class::class.java)
+                val factory = getServiceMethod.invoke(services, factoryClass)
+                
+                val newOpMethod = factoryClass.getMethod("newOperation", Class::class.java)
+                loggerInstance = newOpMethod.invoke(factory, taskClass)
+                usedMechanism = "native"
+            }
         } catch (e: Exception) {
-            // Logger remains null
+            if (forceNative) {
+                println("WARNING: Native ProgressLogger initialization failed: ${e.message}")
+            }
+        }
+        
+        if (loggerInstance == null) {
+            usedMechanism = "console-fallback"
+        }
+    }
+
+    private fun invokeMethod(obj: Any, methodName: String, vararg args: Any?) {
+        val argTypes = args.map { if (it == null) String::class.java else it.javaClass }.toTypedArray()
+        
+        // Special handling for String parameters because they might be GStrings or other CharSequences
+        val normalizedArgs = args.map { it?.toString() }.toTypedArray()
+        val normalizedTypes = Array(args.size) { String::class.java }
+
+        // Find method on the class or any of its interfaces
+        var method: Method? = null
+        var currentClass: Class<*>? = obj.javaClass
+        
+        while (currentClass != null && method == null) {
+            try {
+                method = currentClass.getDeclaredMethod(methodName, *normalizedTypes)
+            } catch (e: Exception) {
+                // Try interfaces
+                for (iface in currentClass.interfaces) {
+                    try {
+                        method = iface.getDeclaredMethod(methodName, *normalizedTypes)
+                        if (method != null) break
+                    } catch (e2: Exception) {}
+                }
+            }
+            currentClass = currentClass.superclass
+        }
+
+        if (method == null && args.isEmpty()) {
+            // Try no-arg version
+             currentClass = obj.javaClass
+             while (currentClass != null && method == null) {
+                try {
+                    method = currentClass.getDeclaredMethod(methodName)
+                } catch (e: Exception) {
+                    for (iface in currentClass.interfaces) {
+                        try {
+                            method = iface.getDeclaredMethod(methodName)
+                            if (method != null) break
+                        } catch (e2: Exception) {}
+                    }
+                }
+                currentClass = currentClass.superclass
+            }
+        }
+
+        if (method != null) {
+            method.isAccessible = true
+            if (method.parameterCount == 0) {
+                method.invoke(obj)
+            } else {
+                method.invoke(obj, *normalizedArgs)
+            }
+        } else {
+            throw NoSuchMethodException("Method $methodName not found on ${obj.javaClass}")
         }
     }
 
     fun start(description: String, shortDescription: String = "") {
         if (isStarted) return
+        
+        if (forceNative || System.getProperty("progress.debug") == "true") {
+            println("[ProgressLogger Debug] Using mechanism: $usedMechanism")
+        }
+
         try {
-            if (loggerInstance != null) {
-                loggerInstance!!.javaClass.getMethod("setDescription", String::class.java).invoke(loggerInstance, description)
+            loggerInstance?.let { logger ->
+                invokeMethod(logger, "setDescription", description)
                 if (shortDescription.isNotBlank()) {
-                    loggerInstance!!.javaClass.getMethod("setShortDescription", String::class.java).invoke(loggerInstance, shortDescription)
+                    try { invokeMethod(logger, "setShortDescription", shortDescription) } catch (e: Exception) {}
                 }
-                loggerInstance!!.javaClass.getMethod("started").invoke(loggerInstance)
+                
+                try {
+                    invokeMethod(logger, "started")
+                } catch (e: Exception) {
+                    // Try older 'start' method
+                    val clazz = logger.javaClass
+                    val m = clazz.getMethod("start", String::class.java, String::class.java)
+                    m.isAccessible = true
+                    m.invoke(logger, description, shortDescription)
+                }
+                
                 isStarted = true
                 return
             }
-        } catch (e: Exception) { }
+        } catch (e: Exception) { 
+             if (forceNative) {
+                 println("DEBUG: Failed to start native logger: ${e.message}")
+             }
+        }
         
         // Fallback
         println("> $description")
@@ -63,11 +150,13 @@ class ProgressLogger(private val project: Project, private val taskClass: Class<
 
     fun progress(message: String) {
         try {
-            if (loggerInstance != null) {
-                loggerInstance!!.javaClass.getMethod("progress", String::class.java).invoke(loggerInstance, message)
+            loggerInstance?.let { logger ->
+                invokeMethod(logger, "progress", message)
                 return
             }
-        } catch (e: Exception) { }
+        } catch (e: Exception) { 
+            if (forceNative) println("DEBUG: Progress update failed: ${e.message}")
+        }
         
         // In-place console fallback
         print("\r\u001B[K> $message")
@@ -77,11 +166,15 @@ class ProgressLogger(private val project: Project, private val taskClass: Class<
     fun completed(status: String? = null) {
         if (!isStarted) return
         try {
-            if (loggerInstance != null) {
+            loggerInstance?.let { logger ->
                 if (status != null) {
-                    loggerInstance!!.javaClass.getMethod("completed", String::class.java).invoke(loggerInstance, status)
+                    try {
+                        invokeMethod(logger, "completed", status)
+                    } catch (e: Exception) {
+                        invokeMethod(logger, "completed")
+                    }
                 } else {
-                    loggerInstance!!.javaClass.getMethod("completed").invoke(loggerInstance)
+                    invokeMethod(logger, "completed")
                 }
                 return
             }

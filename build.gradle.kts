@@ -11,10 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation(gradleApi())
-    testImplementation(kotlin("test"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    compileOnly(gradleApi())
 }
 
 java {
@@ -28,15 +25,11 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
     }
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
-gradlePlugin {
-    plugins {
-        create("progressLogger") {
-            id = "dev.wilhelms.gradle.progress-logger"
-            implementationClass = "dev.wilhelms.gradle.progress.ProgressPlugin"
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            artifactId = "gradle-progress-logger"
         }
     }
 }
