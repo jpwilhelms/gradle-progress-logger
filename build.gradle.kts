@@ -42,6 +42,7 @@ tasks.test {
 
 // Internal plugin ONLY for tests
 gradlePlugin {
+    isAutomatedPublishing = false
     plugins {
         create("progressLoggerTestHelper") {
             id = "dev.wilhelms.gradle.progress-logger-test-helper"
