@@ -6,7 +6,7 @@ A robust, version-agnostic wrapper for Gradle's internal `ProgressLogger`.
 > This library was developed with **AI assistance** to ensure high-fidelity reflection logic and cross-version compatibility.
 
 ## Features
-- **Version Compatibility:** Supports Gradle 7.x, 8.x, and **Gradle 9.x**.
+- **Version Compatibility:** Supports Gradle 7.x, 8.x, and Gradle 9.x.
 - **Robust Reflection:** Safely accesses internal APIs without breaking the build, handling classloader isolation and visibility restrictions.
 - **JUnit-style Fallback:** Automatically switches to in-place terminal updates (`\r`) if the native status bar is unavailable or non-interactive.
 - **Configuration Cache Ready:** Designed to be used within tasks without breaking serialization.
