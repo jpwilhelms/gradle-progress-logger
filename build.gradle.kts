@@ -4,6 +4,7 @@ plugins {
     `maven-publish`
     `signing`
     id("org.jetbrains.dokka") version "1.9.10"
+    id("com.gradleup.nmcp") version "0.0.9"
 }
 
 group = "dev.wilhelms.gradle"
@@ -42,6 +43,7 @@ tasks.test {
 
 // Internal plugin ONLY for tests
 gradlePlugin {
+    isAutomatedPublishing = false
     plugins {
         create("progressLoggerTestHelper") {
             id = "dev.wilhelms.gradle.progress-logger-test-helper"
@@ -92,18 +94,13 @@ publishing {
             }
         }
     }
-    
-    repositories {
-        maven {
-            val releasesRepoUrl = "https://central.sonatype.com/service/local/staging/deploy/maven2/"
-            val snapshotsRepoUrl = "https://central.sonatype.com/content/repositories/snapshots/"
-            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
-            
-            credentials {
-                username = System.getenv("OSSRH_USERNAME")
-                password = System.getenv("OSSRH_PASSWORD")
-            }
-        }
+}
+
+// Modern Maven Central Publishing (New Portal)
+nmcp {
+    publish("maven") {
+        username.set(System.getenv("OSSRH_USERNAME"))
+        password.set(System.getenv("OSSRH_PASSWORD"))
     }
 }
 
