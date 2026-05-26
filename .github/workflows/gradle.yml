@@ -50,8 +50,9 @@ jobs:
       id: get_version
       run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
-    - name: Publish to Maven Central
-      run: ./gradlew build publish -Pversion=${{ steps.get_version.outputs.VERSION }}
+    - name: Publish to Maven Central Portal
+      # The nmcp plugin provides the publishToCentralPortal task
+      run: ./gradlew build publishAllPublicationsToCentralPortal -Pversion=${{ steps.get_version.outputs.VERSION }}
       env:
         OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
         OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
